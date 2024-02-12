@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: IPokemonMetadataProviderTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in IPokemonMetadataProviderTest
+shouldReturnBulbizarreMetadata  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "fr.univavignon.pokedex.api.IPokemonMetadataProvider.getPokemonMetadata(int)" because "IPokemonMetadataProviderTest.metadataProvider" is null
+	at IPokemonMetadataProviderTest.shouldReturnBulbizarreMetadata(IPokemonMetadataProviderTest.java:32)
+

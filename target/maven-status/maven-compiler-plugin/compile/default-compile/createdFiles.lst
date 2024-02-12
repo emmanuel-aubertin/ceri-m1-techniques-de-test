@@ -1,0 +1,7 @@
+fr/univavignon/pokedex/api/PokemonMetadata.class
+fr/univavignon/pokedex/api/IPokemonMetadataProvider.class
+fr/univavignon/pokedex/api/Team.class
+fr/univavignon/pokedex/api/PokedexException.class
+fr/univavignon/pokedex/api/PokemonComparators.class
+fr/univavignon/pokedex/api/Pokemon.class
+fr/univavignon/pokedex/api/IPokemonFactory.class
