@@ -23,6 +23,8 @@ public class IPokemonMetadataProviderTest {
 
         try {
             when(metadataProvider.getPokemonMetadata(0)).thenReturn(expectedMetadata);
+            when(metadataProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Invalid pokemon index"));
+            when(metadataProvider.getPokemonMetadata(152)).thenThrow(new PokedexException("Invalid pokemon index"));
         } catch (PokedexException e) {
             System.out.println("Error during the when setup");
             e.printStackTrace();
@@ -73,5 +75,7 @@ public class IPokemonMetadataProviderTest {
         // Assert the expected results
         assertEquals(expectedMetadata.getStamina(), result.getStamina());
     }
+
+
 
 }
