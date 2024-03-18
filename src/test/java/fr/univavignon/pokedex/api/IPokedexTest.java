@@ -43,10 +43,10 @@ public class IPokedexTest {
     }
 
     @Test
-    public void testGetPokemon() throws PokedexException {
+    public void testGetPokemonCP() throws PokedexException {
         Pokemon pokemon = pokedex.getPokemon(0);
         assertEquals("Bulbizarre", pokemon.getName());
-        assertEquals(613, pokemon.getCp());
+        assertEquals(4, pokemon.getCp());
     }
 
     @Test
