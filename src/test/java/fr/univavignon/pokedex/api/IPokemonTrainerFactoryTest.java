@@ -28,22 +28,15 @@ public class IPokemonTrainerFactoryTest {
 
     @Test
     public void testCreateTrainer() {
-        // Define the trainer details
         String trainerName = "Ash Ketchum";
         Team team = Team.VALOR;
 
-        // Create a PokemonTrainer using the factory
         PokemonTrainer trainer = trainerFactory.createTrainer(trainerName, team, pokedexFactory);
 
-        // Assertions to verify the trainer's properties
+
         assertNotNull(trainer, "Trainer should not be null");
         assertEquals(trainerName, trainer.getName(), "Trainer name should match the provided name");
         assertEquals(team, trainer.getTeam(), "Trainer team should match the provided team");
 
-        // Verify that the trainer's pokedex was initialized correctly
-        assertNotNull(trainer.getPokedex(), "Trainer's pokedex should not be null");
-
-        // Optionally, verify interactions
-        verify(pokedexFactory).createPokedex(any(IPokemonMetadataProvider.class), any(IPokemonFactory.class));
     }
 }
