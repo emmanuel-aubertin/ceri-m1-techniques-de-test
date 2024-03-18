@@ -21,7 +21,7 @@ public class IPokemonFactoryTest {
         when(pokemonFactory.createPokemon(0, 613, 64, 4000, 4)).thenReturn(new Pokemon(0, "Bulbizarre", 613, 64, 4000, 4, 56, 4000, 4, 56));
         Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
         assertEquals("Bulbizarre", pokemon.getName());
-        assertEquals(613, pokemon.getCp());
-        assertEquals(64, pokemon.getHp());
+        assertEquals(4, pokemon.getCp());
+        assertEquals(56, pokemon.getHp());
     }
 }
