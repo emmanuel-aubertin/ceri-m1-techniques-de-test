@@ -13,6 +13,9 @@ public class PokemonTrainerFactoryImpl implements IPokemonTrainerFactory {
     @Override
     public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
         IPokedex pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+        if (pokedex == null) {
+            throw new IllegalStateException("PokedexFactory returned a null Pokedex");
+        }
         return new PokemonTrainer(name, team, pokedex);
     }
 }
