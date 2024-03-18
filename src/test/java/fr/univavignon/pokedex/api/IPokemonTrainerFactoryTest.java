@@ -22,8 +22,8 @@ public class IPokemonTrainerFactoryTest {
         metadataProvider = mock(IPokemonMetadataProvider.class);
 
         trainerFactory = new PokemonTrainerFactoryImpl(metadataProvider, pokemonFactory);
-
         when(pokedexFactory.createPokedex(any(IPokemonMetadataProvider.class), any(IPokemonFactory.class))).thenReturn(pokedex);
+
     }
 
     @Test
