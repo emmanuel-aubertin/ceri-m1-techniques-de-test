@@ -17,7 +17,8 @@ public class IPokemonTrainerFactoryTest {
     public void setUp() {
         pokedexFactory = mock(IPokedexFactory.class);
         pokedex = mock(IPokedex.class);
-        trainerFactory = new PokemonTrainerFactoryImpl(pokedexFactory);
+        Team myTeam = Team.MYSTIC;
+        trainerFactory = new PokemonTrainerFactoryImpl();
 
         when(pokedexFactory.createPokedex(any(IPokemonMetadataProvider.class), any(IPokemonFactory.class))).thenReturn(pokedex);
     }
