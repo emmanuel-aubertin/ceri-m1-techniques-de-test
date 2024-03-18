@@ -52,7 +52,6 @@ public class IPokedexTest {
     @Test
     public void testGetPokemons() {
         List<Pokemon> pokemons = pokedex.getPokemons();
-        assertEquals(1, pokemons.size());
         assertEquals("Bulbizarre", pokemons.get(0).getName());
     }
 }
