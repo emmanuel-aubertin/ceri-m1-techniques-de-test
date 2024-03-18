@@ -1,6 +1,8 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:java:.
 version: 2.1
+
+orbs:
+  codecov: codecov/codecov@4.0.1
+
 jobs:
   test-java:
     docker:
@@ -22,22 +24,20 @@ jobs:
           key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
           paths:
             - ~/.m2/repository
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
+
+  upload-coverage:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/openjdk:17.0
     steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
-orbs:
-  codecov: codecov/codecov@4.0.1
+      - checkout
+      - codecov/upload:
+          file: 'path/to/your/coverage/file' # Update with your actual coverage file path
+
 workflows:
   build-and-test:
     jobs:
       - test-java
+
   upload-to-codecov:
     jobs:
-      - checkout
-      - codecov/upload
+      - upload-coverage
