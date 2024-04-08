@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Méta informations du projet -->
     <groupId>com.univavignon</groupId>
     <artifactId>pokedex</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -11,16 +10,13 @@
     <description>Pokedex en Java</description>
 
     <properties>
-        <!-- Java -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <!-- Dependencies version -->
         <junit.version>5.7.0</junit.version>
         <mockito.version>3.6.0</mockito.version>
     </properties>
 
     <dependencies>
-        <!-- JUnit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -28,37 +24,22 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.11</version>
-        </dependency>
-        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.1</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
         <plugins>
             <plugin>
-                <!-- Plugin Maven for compile -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -68,15 +49,29 @@
                 </configuration>
             </plugin>
             <plugin>
-                <!-- Plugin Maven fro script test -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
-                <configuration>
-                    <additionalClasspathElements>
-                        <additionalClasspathElement>src/test/java/</additionalClasspathElement>
-                    </additionalClasspathElements>
-                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
