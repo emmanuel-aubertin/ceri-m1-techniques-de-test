@@ -31,7 +31,7 @@ jobs:
     steps:
       - checkout
       - codecov/upload:
-          file: 'path/to/your/coverage/file' # Update with your actual coverage file path
+          file: target/jacoco.exec
 
 workflows:
   build-and-test:
